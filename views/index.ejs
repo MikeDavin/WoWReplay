@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>WoW Raid Review</title>
+        <link rel="stylesheet" href="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
+        <script src="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+        <link rel="stylesheet" type="text/css" href="/styles/homepage.css">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+	    <link rel="shortcut icon" href="favicon.ico">    
+    </head>
+    <body  style="">
+         <div class="backgroundContainer">
+             <div class="backgroundGradient"></div>
+             <div class="backgroundTiles"></div>
+        </div>
+        <div class="container-narrow center-block" style="width:900px;">
+            <div class="masthead">
+                <%- authenticate %>
+                <h1>WoWRaid.Review</h1>
+            </div><!-- masthead -->
+            <%- serverMessage %>
+            <hr>
+            <div class='span6'>
+                <a href='/uploadLog'><div class='btn btn-default btn-warning' style=''>
+                    <span class='glyphicon glyphicon-upload'></span><br>Upload Log
+                </div></a>
+                <a href='/liveLog'><div class='btn btn-default btn-warning' style=''>
+                    <span class='glyphicon glyphicon-time'></span><br>Live Logging
+                </div></a>
+                <a href='/splitLog'><div class='btn btn-default btn-success' style=''>
+                    <span class='glyphicon glyphicon-duplicate'></span><br>Split Log
+                </div></a>
+                <a href='/replay'><div class='btn btn-default btn-success' style=''>
+                    <span class='glyphicon glyphicon-folder-open'></span><br>View Local File
+                </div></a>
+                <a href='/users'><div class='btn btn-default btn-danger' style=''>
+                    <span class='glyphicon glyphicon-user'></span><br>Users List
+                </div></a>
+                <a href='/replay/16-299'><div class='btn btn-default btn-danger' style=''>
+                    <span class='glyphicon glyphicon-eye-open'></span><br>Sample Fight
+                </div></a>
+            </div>
+            <hr>
+            <div class='panel panel-success'>
+                <div class='panel-heading'><b>Updates</b></div>
+                <div class='panel-body'>8-26: Release!</div>
+            </div>
+            <div class='panel panel-success'>
+                <div class='panel-heading'><b>About</b></div>
+                <div class='panel-body'>
+                    <p>WoW Raid Review is a visual combat log analysis tool for World of Warcraft. It's designed to quickly show where
+                    dangerous boss mechanics landed, how your raid reacted to them, and then easily share that information with your team. I've been doing heroic and mythic raid leading since Firelands. While I love tools like WorldOfLogs and WarcraftLogs,
+                    as my group got deeper into Hellfire Citadel there were more and more times I wasn't able to get the information I needed out of them. This site was created help make sense of chaotic fights like Gorefiend or Mythic Mannoroth, and track how people reacted to 
+                    movement heavy mechanics like the surge debuffs on Xhul'Horac or Wrought and Focused Chaos on Mythic Archimonde.</p>
+                    <p>If you have any bug reports, comments, or suggestions, you can email me at WoWRaidReview@gmail.com, or tweet me @Xeleroth.</p>
+                </div>
+            </div>
+            <div class='panel panel-success'>
+                <div class='panel-heading'><b>How To Use</b></div>
+                <div class='panel-body'>
+                    <p>Create an account to start uploading patch 7.0 Hellfire Citadel raid logs, or turn on livelogging while you raid. You can then view your uploaded fights from your user profile,
+                    or look through other people's profiles to learn how other teams approach these fights.</p>
+                    <p>To make it as easy as possible to share what you've learned with your team, each user has a group viewing room, accesed from their profile page. Everyone in the room will see the 
+                    same fight, and by holding shift as you play, pause, or skip to a time in the fight, everyone viewing
+                    will be synchronized to the same spot you're looking at. The owner of the room can choose which fight is displayed, by clicking a button while viewing uploaded fights, or by uploading new data. This works really well with livelogging, allowing your raid to 
+                    leave one webpage open that will automatically update with the new data seconds after each encounter ends.</p>
+                    <p>If you don't want your logs saved or shared, you can also split logs and view individual fight files locally.</p>
+                    <p>Works best on Google Chrome.</p>
+                </div>
+            </div>
+            
+        </div><!-- container -->
+    </body> <!-- body -->
+</html>  <!-- html -->

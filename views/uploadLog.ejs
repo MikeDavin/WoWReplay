@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+
+<html>
+    <head>
+        <title>Upload Log</title>
+        <link rel="stylesheet" href="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
+        <script src="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+        <link rel="stylesheet" type="text/css" href="styles/homepage.css">
+        <link rel="shortcut icon" href="favicon.ico">
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <script src='/scripts/uploadLog.js'></script>
+        <script src='/scripts/parseLog.js'></script>
+        <script src='/scripts/encounters.js'></script>
+        <script src='/scripts/hellfireCitadel.js'></script>
+        <script src='/scripts/emeraldNightmare.js'></script>
+        <script src='/scripts/tombOfSargeras.js'></script>
+        <script src='/scripts/nighthold.js'></script>
+        <script src='/scripts/actors.js'></script>
+        <script src='/scripts/replay.js'></script>
+        <script src='/scripts/playerClass.js'></script>
+    </head>
+    <body onload = 'initSplitLog();'>
+        <div class="backgroundContainer">
+             <div class="backgroundGradient"></div>
+             <div class="backgroundTiles"></div>
+        </div>
+        <div class="container-narrow center-block" style="width:900px;">
+            <div class="masthead">
+                <%- authenticate %>
+                <a href='/' style='display:inline-block;'><h1>WoWRaid.Review</h1></a> <h3 style='display:inline-block;'> / UploadLog</h3>
+            </div><!-- masthead -->
+            <hr>
+            <div class='panel panel-success'>
+                <div class='panel-heading'><h3>Select the log file to upload</h3>Make sure it's a patch 7.0 log with Advanced Combat Logging enabled.</div>
+                <div class='panel-body'>
+                    <input style='margin:auto;' class='btn btn-lg btn-success' type='file' id='fileSelect'>
+                    <div class='panel'></div>
+                    <div class='progress'>
+                        <div id = 'progressBarCover' class='progress-bar progress-bar-success' style='width:0%;'>
+                        </div>
+                    </div>
+                </div><!-- panel-body -->
+            </div>
+            <div class='panel'><div id='output' class='panel-body'></div></div>
+        </div><!-- container -->
+    </body>
+</html>

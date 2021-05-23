@@ -1,0 +1,73 @@
+body{
+    width:100%;
+    height:100%;
+    color:white;
+}
+
+@-webkit-keyframes GradientFlow {
+    0%{background-position: 23% 23%}
+    50%{background-position: 31% 31%}
+    100%{background-position: 23% 23%}
+}
+@-moz-keyframes GradientFlow {
+    0%{background-position: 23% 23%}
+    50%{background-position: 31% 31%}
+    100%{background-position: 23% 23%}
+}
+@keyframes GradientFlow { 
+    0%{background-position: 23% 23%}
+    50%{background-position: 31% 31%}
+    100%{background-position: 23% 23%}
+    
+}
+
+.userAccount{
+    border-style:solid;
+    border-width: 3px 3px 3px 3px;
+    padding-bottom: 3px;
+    padding-top: 3px;
+}
+
+.container-narrow{
+    background-color:rgba(0, 0, 0, 0.75);
+}
+
+.panel{
+    background-color:rgba(0,0,0,0.8);
+}
+
+.backgroundContainer{
+    position:fixed;
+    width:100%;
+    height:100%;
+    top:0px;
+    z-index:-3;
+}
+
+.backgroundGradient{
+    position:fixed;
+    background: linear-gradient(0deg,#00ff00, #00ff00, #000000, #000000);
+    background-size: 400% 400%;
+
+    -webkit-animation: GradientFlow 10s ease-in-out infinite;
+    -moz-animation: GradientFlow 10s ease-in-out infinite;
+    animation: GradientFlow 10s ease-in-out infinite;
+    width:100%;
+    height:100%;
+    top:0px;
+    z-index:-2;
+}
+
+.backgroundTiles{
+    position:fixed;
+    width:100%;
+    height:100%;
+    top:0px;
+    z-index:-1;
+    background:url(/alphaNarrow.png) repeat 0 0;
+}
+
+.user{
+    background-color:darkgrey;
+    border-width: 2px 2px 2px 2px;
+}

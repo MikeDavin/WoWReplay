@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <link rel="stylesheet" href="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
+        <script src="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <link rel="stylesheet" type="text/css" href="styles/homepage.css">
+        <title>Log In</title>
+    </head>
+    <body style="">
+        <div class="backgroundContainer">
+             <div class="backgroundGradient"></div>
+             <div class="backgroundTiles"></div>
+        </div>
+        <div class="container-narrow center-block" style="width:400px;">
+            <h1 class="center-block" style='text-align:center'>Log In</h1>
+            
+            <%- serverMessage %>
+            <hr>
+            <form action="/login" method="post" style="color:black;">
+                <input class="form-control" type="text" name="username" placeholder='Username'/>
+                <input class="form-control" type="password" name="password" placeholder='Password'/>
+                <div class='form-actions' style='text-align:center;'><input class="btn btn-default" type="submit" value="Log In"/></div>
+            </form>
+        </div><!-- container -->
+    </body>
+</html>

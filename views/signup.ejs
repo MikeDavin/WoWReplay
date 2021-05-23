@@ -1,0 +1,200 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>Create Account</title>
+        <link rel="stylesheet" href="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
+        <script src="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+        <link rel="stylesheet" type="text/css" href="/styles/homepage.css">
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <script>
+            var validateInfo = function()
+            {
+                var username = document.getElementById("username").value;
+                var password = document.getElementById("password").value;
+                var passwordCheck = document.getElementById("passwordCheck").value;
+                var specSelectElement = document.getElementById("specSelect");
+                if(specSelectElement.options.length === 0)
+                    return generateError("Please select a main spec.");
+                var specIndex = specSelectElement.options[specSelectElement.selectedIndex].value;
+                
+                if(username === null || username.length <= 2)
+                {
+                    return generateError("Username must be longer.");
+                }
+                if(username.length > 20)
+                {
+                    return generateError("Username is too long.");
+                }
+                for(var c of username)
+                {
+                    c = c.charCodeAt(0);
+                    if(!((c >= 97 && c <= 122) ||//a-z
+                        (c >= 65 && c <= 90) ||//A-Z
+                        (c >= 48 && c <= 57)))//0-9
+                    {
+                        return generateError("Invalid character in username: '"+String.fromCharCode(c)+"'.");
+                    }
+                }
+                if(password === null || password.length < 6)
+                {
+                    return generateError("Password is too short, must be at least 6 characters long.");
+                }
+                if(password.length > 50)
+                {
+                    return generateError("Password is too long.");
+                }
+                if(passwordCheck === null || passwordCheck !== password)
+                {
+                    return generateError("The two passwords do not match.");
+                }
+                if(specIndex === undefined || specIndex === null) {
+                    return generateError("Please select a main spec.");
+                }
+                if(document.getElementById("ageCheck").checked !== true)
+                {
+                    return generateError("You must be at least 13 years old to create an account.");
+                }
+                document.getElementById("spec").value = specIndex;
+                document.getElementById("theForm").submit();
+            };
+
+            var generateError = function(errString)
+            {
+                document.getElementById("serverMessage").innerHTML ="<div class='alert alert-danger'>"+errString+"</div>";
+            };
+
+            var changeSpecsList = function()
+            {
+                var s = document.getElementById('classSelect');
+                var spec = document.getElementById("specSelect");
+                spec.style.visibility = 'visible';
+                if(s.options[s.selectedIndex].value === 'dk')
+                {
+                    spec.innerHTML = '<option value="0">Blood</option>'
+                    spec.innerHTML += '<option value="1">Frost</option>'
+                    spec.innerHTML += '<option value="2">Unholy</option>'
+                }
+                else if(s.options[s.selectedIndex].value === 'dh')
+                {
+                    spec.innerHTML = '<option value="3">Havoc</option>'
+                    spec.innerHTML += '<option value="4">Vengeance</option>'
+                }
+                else if(s.options[s.selectedIndex].value === 'dr')
+                {
+                    spec.innerHTML = '<option value="5">Balance</option>'
+                    spec.innerHTML += '<option value="6">Feral</option>'
+                    spec.innerHTML += '<option value="7">Guardian</option>'
+                    spec.innerHTML += '<option value="8">Restoration</option>'
+                }
+                else if(s.options[s.selectedIndex].value === 'hu')
+                {
+                    spec.innerHTML = '<option value="9">Beast Mastery</option>'
+                    spec.innerHTML += '<option value="10">Marksman</option>'
+                    spec.innerHTML += '<option value="11">Survival</option>'
+                }
+                else if(s.options[s.selectedIndex].value === 'ma')
+                {
+                    spec.innerHTML = '<option value="12">Arcane</option>'
+                    spec.innerHTML += '<option value="13">Fire</option>'
+                    spec.innerHTML += '<option value="14">Frost</option>'        
+                }
+                else if(s.options[s.selectedIndex].value === 'mo')
+                {
+                    spec.innerHTML = '<option value="15">Brewmaster</option>'
+                    spec.innerHTML += '<option value="16">Mistweaver</option>'
+                    spec.innerHTML += '<option value="17">Windwalker</option>' 
+                }
+                else if(s.options[s.selectedIndex].value === 'pa')
+                {
+                    spec.innerHTML = '<option value="18">Holy</option>'
+                    spec.innerHTML += '<option value="19">Protection</option>'
+                    spec.innerHTML += '<option value="20">Retribution</option>' 
+                }
+                else if(s.options[s.selectedIndex].value === 'pr')
+                {
+                    spec.innerHTML = '<option value="21">Discipline</option>'
+                    spec.innerHTML += '<option value="22">Holy</option>'
+                    spec.innerHTML += '<option value="23">Shadow</option>' 
+                }
+                else if(s.options[s.selectedIndex].value === 'ro')
+                {
+                    spec.innerHTML = '<option value="24">Assassination</option>'
+                    spec.innerHTML += '<option value="25">Outlaw</option>'
+                    spec.innerHTML += '<option value="26">Subtelty</option>' 
+                }
+                else if(s.options[s.selectedIndex].value === 'sh')
+                {
+                    spec.innerHTML = '<option value="27">Elemental</option>'
+                    spec.innerHTML += '<option value="28">Enhancement</option>'
+                    spec.innerHTML += '<option value="29">Restoration</option>' 
+                }
+                else if(s.options[s.selectedIndex].value === 'lock')
+                {
+                    spec.innerHTML = '<option value="30">Affliction</option>'
+                    spec.innerHTML += '<option value="31">Demonology</option>'
+                    spec.innerHTML += '<option value="32">Destruction</option>' 
+                }
+                else if(s.options[s.selectedIndex].value === 'war')
+                {
+                    spec.innerHTML = '<option value="33">Arms</option>'
+                    spec.innerHTML += '<option value="34">Fury</option>'
+                    spec.innerHTML += '<option value="35">Protection</option>' 
+                }
+            };
+            
+        </script>
+    </head>
+    <body>
+        <div class="backgroundContainer">
+             <div class="backgroundGradient"></div>
+             <div class="backgroundTiles"></div>
+        </div>
+        <div class="container-narrow center-block" style="width:900px;">
+            <div class="masthead">
+                <a href='/' style='display:inline-block;'><h1>WoWRaid.Review</h1></a>
+                <h3 style='display:inline-block;'> / Create Account</h3>
+            </div><!-- masthead -->
+            <hr>
+            <div id='serverMessage' class="center-block" style='text-align:center'><%- serverMessage %></div>
+            
+            <form action="/createAccount" method="post" id="theForm" class='form-horizontal'>
+                <label for='username' class='control-label col-sm-2'>Username</label>
+                <div class='col-sm-10'><input type="text" name="username" id="username" class="form-control"/></div>
+                <label for='password' class='control-label col-sm-2'>Password</label>
+                <div class='col-sm-10'><input type="password" name="password" id='password' class="form-control"/></div>
+                <label for='passwordCheck' class='control-label col-sm-2'>Repeat Password</label>
+                <div class='col-sm-10'><input type="password" id='passwordCheck' class="form-control"/></div>
+                <input type='text' name='spec' id='spec' style='display:none;'/>
+                <label for='classSelect' class='control-label col-sm-2'>Class </label>
+                <span class='col-sm-10'>
+                    <select id='classSelect'style='color:black;padding-top: 4px;padding-bottom: 4px;' class='dropdown' onchange = 'changeSpecsList();'>
+                        <option value='blank'></option>
+                        <option value='dk'>Death Knight</option>
+                        <option value='dh'>Demon Hunter</option>
+                        <option value='dr'>Druid</option>
+                        <option value='hu'>Hunter</option>
+                        <option value='ma'>Mage</option>
+                        <option value='mo'>Monk</option>
+                        <option value='pa'>Paladin</option>
+                        <option value='pr'>Priest</option>
+                        <option value='ro'>Rogue</option>
+                        <option value='sh'>Shaman</option>
+                        <option value='lock'>Warlock</option>
+                        <option value='war'>Warrior</option>
+                    </select>
+                    <select id='specSelect' style='color:black;width:120px;visibility:hidden;padding-top: 4px;padding-bottom: 4px;' class='' form='theForm'></select>
+                </span>
+                <div style='visibility:hidden;'> asdf </div>
+                <div style='text-align:center;'>
+                    <a href='http://wikipedia.org/wiki/Children%27s_Online_Privacy_Protection_Act' target="_blank">Are you over 13 years old?</a>
+                    <input type='checkbox' id='ageCheck' name='ageCheck' value='ageCheck'/>
+                </div>
+  
+                <br>
+                <div><button type="button" class='btn btn-lg center-block' style='color:black;' onclick="validateInfo();"/>Create Account</button></div>
+            </form>
+        </div> <!-- container -->
+    </body>
+</html>

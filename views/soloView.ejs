@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>WoW Raid Review</title>
+        <link rel="stylesheet" href="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
+        <script src="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+	    <link rel="shortcut icon" href="/favicon.ico">
+        <link rel="stylesheet" type="text/css" href="/styles/replay.css">
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <script src='/scripts/encounters.js'></script>
+        <script src='/scripts/hellfireCitadel.js'></script>
+        <script src='/scripts/emeraldNightmare.js'></script>
+        <script src='/scripts/nighthold.js'></script>
+        <script src='/scripts/tombOfSargeras.js'></script>
+        <script src='/scripts/htmlControl.js'></script>
+        <script src='/scripts/actors.js'></script>
+        <script src='/scripts/parseLog.js'></script>
+        <script src='/scripts/replay.js'></script>
+        <script src='/scripts/visuals.js'></script>
+        <script src='/scripts/playerClass.js'></script>
+        <%- fightData %>
+    </head>
+    <body onLoad='initReplay();'>
+
+        <div class="content">
+            <div class="Sims" id="Sims">
+
+        <div class="header" id="header">
+            <div id="errorOutput" class='label label-danger' style='font-size:100%'></div>
+            <%- fileSelect %>
+
+            <div class='dropdown' id='fightNameDropdown' style='visibility:hidden;'>
+                <button id="fightName" class="btn btn-primary dropdown-toggle" type='button' data-toggle='dropdown'></button>
+                <ul class='dropdown-menu' id='fightDescription' style='overflow:auto;'></ul>
+            </div><!-- fightName Dropdown -->
+            
+            <div class='dropdown' id='optionsDropdown' style='visibility:hidden;'>
+                <button id="optionsButton" class="btn btn-primary dropdown-toggle" type='button' data-toggle='dropdown'><span class='glyphicon glyphicon-cog'></span> Options</button>
+                    <div class="dropdown-menu" id='optionsMenu'>
+                        <label>Icon Size(ZX):</label>
+                        <select id="iconSizeSelector">
+                            <option value="60">Huge</option>
+                            <option value="50">Large</option>
+                            <option value="40">Medium</option>
+                            <option value="30" selected="selected">Small</option>
+                            <option value="20">Tiny</option>
+                        </select><br>
+
+                        <label>Replay Speed(<span class='glyphicon glyphicon-arrow-up'></span> <span class='glyphicon glyphicon-arrow-down'></span>)</label>
+                        <select id="replaySpeedSelector">
+                            <option value='0.5'>0.5x</option>
+                            <option value='1' selected='selected'>1x</option>
+                            <option value='2'>2x</option>
+                            <option value='4'>4x</option>
+                            <option value='8'>8x</option>
+                            <option value='16'>16x</option>
+                        </select><br>
+                        <label>Movement Style</label>
+                        <select id="movementStyleSelector">
+                            <option value='0'>Raw Data</option>
+                            <option value='1' selected='selected'>Smooth</option>
+                        </select><br>
+                        <label><input type='checkbox' id='dynamicCamera'>Dynamic Camera(C)</input></label><br>
+                        <label><input type='checkbox' id='dpsTargets'>DPS Targets(T)</input></label><br>
+                        <label><input type='checkbox' id='healerRange'>Healer Range(E)</input></label><br>
+                        <hr>
+                        (Space)Play/Pause<br>
+                        (<span class='glyphicon glyphicon-arrow-left'></span> <span class='glyphicon glyphicon-arrow-right'></span>)Small Step<br>
+                        (1-9)Skip by percentage<br>
+                </div><!-- options menu -->
+            </div><!-- options Dropdown -->
+            <div class='btn btn-primary'>
+                <span class='glyphicon glyphicon-align-right'></span>
+                <select id ="sidebarContentSelector" class='btn-primary'  style='visibility:hidden;'>
+                    <option value='raidFrames' selected='selected'>Raid Status(R)</option>
+                    <option value='addDps'>DPS on Adds(D)</option>
+                    <option value="hidden">Hidden(H)</option>
+                </select>
+            </div>
+        </div> <!-- header -->
+
+
+
+                <div class="SimContainer" id="PrimarySimContainer">
+                    <canvas class="SimCanvas" id="PrimarySimCanvas"></canvas>
+                </div>
+            </div> <!-- Sims -->
+            <div class="raidFrame" id="sidebar">
+            </div><!-- sidebar -->
+        </div> <!-- content --> 
+        <div class ="footer">
+           <canvas id="TimelineCanvas" ></canvas> 
+        </div> <!-- footer -->
+        <div class="myTooltip" id='tooltip'></div>
+    </body> <!-- body -->
+</html>  <!-- html -->

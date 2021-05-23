@@ -1,0 +1,29 @@
+<html>
+    <head>
+        <title>Users</title>
+        <link rel="stylesheet" href="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
+        <script src="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+        <link rel="stylesheet" type="text/css" href="/styles/homepage.css">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+	    <link rel="shortcut icon" href="favicon.ico">   
+    </head>
+    <body>
+        <div class="backgroundContainer">
+             <div class="backgroundGradient"></div>
+             <div class="backgroundTiles"></div>
+        </div>
+
+        <div class="container-narrow center-block" style="width:900px;">
+            <div class="masthead">
+                <%- authenticate %>
+                <a href='/' style='display:inline-block;'><h1>WoWRaid.Review</h1></a>
+                <h3 style='display:inline-block;'> / Users</h3>
+            </div><!-- masthead -->
+            <hr>
+            <div class='panel panel-body' style='background-color:rgba(0,0,0,0);'>
+                <%- users %>
+            </div>
+        </div>
+    </body>
+</html>
